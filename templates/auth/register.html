@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+ 	Fedstore Register
+{% endblock title %}
+
+{% block container %}
+			</div>
+				<div class="container">
+					<h2>Registration</h2>
+					<form method="post" action="{% url 'register' %}">
+						{% csrf_token %}
+
+						{% for field in user_form %}
+
+						<div class="row form-group">
+							<div class="col-md-4">
+								<span style="color: red">{{ field.errors }}</span>
+								{{ field.label_tag }}
+								{{ field }}
+							</div>
+						</div>
+
+						{% endfor %}
+<!--						<div class="row form-group">-->
+<!--							<div class="col-md-4">-->
+<!--								<input type="text" id="id_username" class="form-control" name="username" placeholder="Your username">-->
+<!--							</div>-->
+<!--						</div>-->
+<!--						<div class="row form-group">-->
+<!--							<div class="col-md-4">-->
+<!--								<input type="email" id="id_email" class="form-control" name="email" placeholder="Your email">-->
+<!--							</div>-->
+
+<!--						</div>-->
+
+<!--						<div class="form-group">-->
+<!--							<div class="row form-group">-->
+<!--							<div class="col-md-4">-->
+<!--								<input type="password" id="id_password" class="form-control" name="password" placeholder="Your password">-->
+<!--							</div>-->
+								<div>
+							<input type="submit" value="Sing up" class="btn btn-primary">
+						</div>
+
+{% for error in login_form.non_field_errors %}
+						<a>{{ error }}</a>
+						{% endfor %}
+						<br></br>
+					</form>
+				</div>
+			</div>
+
+{% endblock container %}

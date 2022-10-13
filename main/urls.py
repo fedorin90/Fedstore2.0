@@ -1,6 +1,6 @@
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from main import views
 
@@ -12,4 +12,5 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     path('product/', views.product, name='product'),
     path('single/', views.single, name='single'),
+    path('auth/', include('authentication.urls')),
 ]

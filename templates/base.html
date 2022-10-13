@@ -69,24 +69,34 @@
 						<li class="has-dropdown">
 							<a href="{% url 'product' %}">Shop</a>
 							<ul class="dropdown">
-								<li><a href="{% url 'single' %}">Single Shop</a></li>
-							</ul>
-						</li>
-						<li><a href="{% url 'about' %}">About</a></li>
-						<li class="has-dropdown">
-							<a href="services.html">Services</a>
-							<ul class="dropdown">
+								<li><a href="#">Single Shop</a></li>
 								<li><a href="#">Web Design</a></li>
 								<li><a href="#">eCommerce</a></li>
 								<li><a href="#">Branding</a></li>
 								<li><a href="#">API</a></li>
 							</ul>
 						</li>
+						<li><a href="{% url 'about' %}">About</a></li>
+<!--						<li class="has-dropdown">-->
+<!--							<a href="services.html">Services</a>-->
+<!--							<ul class="dropdown">-->
+<!--								<li><a href="#">Web Design</a></li>-->
+<!--								<li><a href="#">eCommerce</a></li>-->
+<!--								<li><a href="#">Branding</a></li>-->
+<!--								<li><a href="#">API</a></li>-->
+<!--							</ul>-->
+<!--						</li>-->
 						<li><a href="{% url 'contact' %}">Contact</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 col-xs-4 text-right hidden-xs menu-2">
 					<ul>
+						{% if request.user.is_authenticated %}
+				<li class="last"><a> {{user.username | upper}}</a> | <a href="{% url 'logout' %}">Logout</a></li>
+						{% else %}
+				<li class="last"><a href="{% url 'register' %}">Register</a> | <a href="{% url 'login' %}">Login</a></li>
+						{% endif %}
+						<p></p>
 						<li class="search">
 							<div class="input-group">
 						      <input type="text" placeholder="Search..">
@@ -107,43 +117,43 @@
 		{% endblock container %}
 
 
-	<footer id="fh5co-footer" role="contentinfo">
-		<div class="container">
-			<div class="row row-pb-md">
-				<div class="col-md-4 fh5co-widget">
-					<h3>Fed.store</h3>
-					<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
-				</div>
-				<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
-					<ul class="fh5co-footer-links">
-						<li><a href="#">About</a></li>
-						<li><a href="#">Help</a></li>
-						<li><a href="#">Contact</a></li>
-						<li><a href="#">Terms</a></li>
-						<li><a href="#">Meetups</a></li>
-					</ul>
-				</div>
+<!--	<footer id="fh5co-footer" role="contentinfo">-->
+<!--		<div class="container">-->
+<!--			<div class="row row-pb-md">-->
+<!--				<div class="col-md-4 fh5co-widget">-->
+<!--					<h3>Fed.store</h3>-->
+<!--					<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>-->
+<!--				</div>-->
+<!--				<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">-->
+<!--					<ul class="fh5co-footer-links">-->
+<!--						<li><a href="#">About</a></li>-->
+<!--						<li><a href="#">Help</a></li>-->
+<!--						<li><a href="#">Contact</a></li>-->
+<!--						<li><a href="#">Terms</a></li>-->
+<!--						<li><a href="#">Meetups</a></li>-->
+<!--					</ul>-->
+<!--				</div>-->
 
-				<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
-					<ul class="fh5co-footer-links">
-						<li><a href="#">Shop</a></li>
-						<li><a href="#">Privacy</a></li>
-						<li><a href="#">Testimonials</a></li>
-						<li><a href="#">Handbook</a></li>
-						<li><a href="#">Held Desk</a></li>
-					</ul>
-				</div>
+<!--				<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">-->
+<!--					<ul class="fh5co-footer-links">-->
+<!--						<li><a href="#">Shop</a></li>-->
+<!--						<li><a href="#">Privacy</a></li>-->
+<!--						<li><a href="#">Testimonials</a></li>-->
+<!--						<li><a href="#">Handbook</a></li>-->
+<!--						<li><a href="#">Held Desk</a></li>-->
+<!--					</ul>-->
+<!--				</div>-->
 
-				<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
-					<ul class="fh5co-footer-links">
-						<li><a href="#">Find Designers</a></li>
-						<li><a href="#">Find Developers</a></li>
-						<li><a href="#">Teams</a></li>
-						<li><a href="#">Advertise</a></li>
-						<li><a href="#">API</a></li>
-					</ul>
-				</div>
-			</div>
+<!--				<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">-->
+<!--					<ul class="fh5co-footer-links">-->
+<!--						<li><a href="#">Find Designers</a></li>-->
+<!--						<li><a href="#">Find Developers</a></li>-->
+<!--						<li><a href="#">Teams</a></li>-->
+<!--						<li><a href="#">Advertise</a></li>-->
+<!--						<li><a href="#">API</a></li>-->
+<!--					</ul>-->
+<!--				</div>-->
+<!--			</div>-->
 
 			<div class="row copyright">
 				<div class="col-md-12 text-center">
