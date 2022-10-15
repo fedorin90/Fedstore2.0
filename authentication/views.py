@@ -1,55 +1,48 @@
-from django.contrib.auth import logout, authenticate, login
-from django.shortcuts import render, redirect
-from django.views.generic import TemplateView
+from django.contrib.auth import logout, login
+from django.contrib.auth.views import LoginView
+from django.core.paginator import Paginator
+from django.http import HttpResponse, HttpResponseNotFound, Http404
+from django.shortcuts import render, redirect, get_object_or_404
+# import django.http
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView, FormView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from .forms import *
+from .models import *
+from .utils import *
 
-from authentication.forms import LoginForm, RegisterForm
 
-
-class RegisterView(TemplateView):
+class RegisterUser(DataMixin, CreateView):
+    form_class = RegisterUserForm
     template_name = 'auth/register.html'
+    success_url = reverse_lazy('login')
 
-    def get(self, request):
-        user_form = RegisterForm()
-        context = {'user_form': user_form}
-        return render(request, 'auth/register.html', context)
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title="Registration")
+        return context | c_def
 
-    def post(self, request):
-        user_form = RegisterForm(request.POST)
-        if user_form.is_valid():
-            user = user_form.save()
-            user.set_password(user.password)
-            user.save()
-            login(request, user)
-            return redirect('index')
-
-        context = {'user_form': user_form}
-        return render(request, 'auth/register.html', context)
+    def form_valid(self, form):
+        user = form.save()
+        login(self.request, user)
+        return redirect('index')
 
 
-def login_user(request):
-    context = {'login_form': LoginForm()}
-    if request.method == 'POST':
-        login_form = LoginForm(request.POST)
-        if login_form.is_valid():
-            username = login_form.cleaned_data['username']
-            password = login_form.cleaned_data['password']
-            user = authenticate(username=username, password=password)
-            if user:
-                login(request, user)
-                return redirect('index')
-            else:
-                context = {
-                    'login_form': login_form,
-                    'attention': f'login or password not valid'
-                }
-        else:
-            context = {
-                'login_form': login_form,
-            }
-    return render(request, 'auth/login.html', context)
+class LoginUser(DataMixin, LoginView):
+    form_class = LoginUserForm
+    template_name = 'auth/login.html'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title="Authentication")
+        return context | c_def
+
+    def get_success_url(self):
+        return reverse_lazy('index')
 
 
 def logout_user(request):
     logout(request)
     return redirect('index')
+
 

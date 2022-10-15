@@ -1,49 +1,30 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
+# from django.core.exceptions import ValidationError
+# from captcha.fields import CaptchaField
+# from .models import *
 
 
-class LoginForm(forms.Form):
-    username = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput())
-
-    def clean(self):
-        cleaned_data = super().clean()
-        username = cleaned_data.get('username')
-        password = cleaned_data.get('password')
-
-        try:
-            self.user = User.objects.get(username=username)
-        except User.DoesNotExist:
-            raise forms.ValidationError(f'User with username: "{username}" does not exist!')
-
-        if not self.user.check_password(password):
-            raise forms.ValidationError('Could not log in using these email and password')
-
-        return cleaned_data
+class LoginUserForm(AuthenticationForm):
+    username = forms.CharField(label='Login', widget=forms.TextInput(attrs={'class': 'form-control'}))
+    password = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
 
 
-class RegisterForm(forms.ModelForm):
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['email'].required = True
-        for visible in self.visible_fields():
-            visible.field.widget.attrs['class'] = 'form-control'
+class RegisterUserForm(UserCreationForm):
+    username = forms.CharField(label='Login', widget=forms.TextInput(attrs={
+        'class': 'form-control', 'placeholder': 'Your username'}))
+    email = forms.EmailField(label='Email', widget=forms.EmailInput(attrs={
+        'class': 'form-control', 'placeholder': 'Your email'}))
+    password1 = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={
+        'class': 'form-control', 'placeholder': 'Your password'}))
+    password2 = forms.CharField(label='Repeat password', widget=forms.PasswordInput(attrs={
+        'class': 'form-control', 'placeholder': 'Repeat your password'}))
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'password')
-        widgets = {'password': forms.PasswordInput()}
+        fields = ('username', 'email', 'password1', 'password2')
 
-    # def clean(self):
-    #     cleaned_data = super(RegisterForm, self).clean()
-    #     password = cleaned_data.get("password")
-    #     confirm_password = cleaned_data.get("confirm_password")
-    #
-    #     if password != confirm_password:
-    #         raise forms.ValidationError(
-    #             "password and confirm_password does not match"
-    #         )
 
 
 

@@ -1750,4 +1750,9 @@ body { padding: 2em; }
 .loginBtn--google:focus {
   background: #E74B37;
 }
+
+.long_desc {
+    width: 300px;
+    height: 200px;
+}
 /*# sourceMappingURL=style.css.map */

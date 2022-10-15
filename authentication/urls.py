@@ -3,11 +3,11 @@ from django.contrib import admin
 from django.urls import path, include
 
 from authentication import views
-
+from authentication.views import LoginUser, RegisterUser
 
 urlpatterns = [
-    path('login/', views.login_user, name='login'),
-    path('register/', views.RegisterView.as_view(), name='register'),
+    path('login/', LoginUser.as_view(), name='login'),
+    path('register/', RegisterUser.as_view(), name='register'),
     path('logout/', views.logout_user, name='logout'),
 
 ]

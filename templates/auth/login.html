@@ -7,59 +7,39 @@
 
 {% block container %}
 
+<div class="container ">
+    <h1>{{title}}</h1>
 
-			</div>
-				<div class="container">
-					<h2>Authentication</h2>
-					<form method="post" action="{% url 'login' %}">
-						{% csrf_token %}
-						<button class="loginBtn loginBtn--facebook">
-							Login with Facebook
-						</button>
-						<button class="loginBtn loginBtn--google">
-							Login with Google
-						</button>
-						<br></br>
-						<div class="row form-group">
-							<div class="col-md-4">
-								<b>Username</b>
-								<input type="text" id="id_username" class="form-control" name="username">
-							</div>
+<form method="post">
+	{% csrf_token %}
+	<button class="loginBtn loginBtn--facebook">
+			Login with Facebook
+		</button>
+		<button class="loginBtn loginBtn--google">
+			Login with Google
+		</button>
+		<br></br>
+    {% for f in form %}
+    <div class="row form-group ">
+        <div class="col-md-4 ">
+    <p><label class="form-group " for="{{ f.id_for_label }}">{{f.label}}:</label>{{ f }}</p>
 
-						</div>
+        </div>
+</div>
 
-						<div class="row form-group">
-							<div class="col-md-4">
-								<b>Password</b>
-								<input type="password" id="id_password" class="form-control" name="password">
-							</div>
-
-						</div>
-
-						<div class="form-group">
-<div>
-								<a href="#" class="txt2 bo1 m-l-5">
-							Forgot password?
+    {% endfor %}
+	<a href="#" class="txt2 bo1 m-l-5">
+							Forgot login or password?
 						</a>
-							</div>
-							<input type="submit" value="Sing in" class="btn btn-primary">
-						</div>
-						<div>
-							<span class="txt2">
-							Not a member?
-						</span>
+<span style="color: red" class="row form-group">{{ form.non_field_errors }}</span>
+	<div>
+		<input type="submit" value="Sing up" class="btn btn-primary">
+</div>
 
-						<a href="#" class="txt2 bo1">
-							Sign up now
-						</a>
-						</div>
-{% for error in login_form.non_field_errors %}
-						<span style="color: red">{{ error }}</span>
-						{% endfor %}
-						<br></br>
-					</form>
-				</div>
-			</div>
+</form>
+</div>
+
+
 <!--<div class="limiter">-->
 <!--		<div class="container-login100" style="background-image: url('images/bg-01.jpg');">-->
 <!--			<div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">-->
@@ -93,9 +73,7 @@
 <!--							Password-->
 <!--						</span>-->
 
-<!--						<a href="#" class="txt2 bo1 m-l-5">-->
-<!--							Forgot?-->
-<!--						</a>-->
+
 <!--					</div>-->
 <!--					<div class="wrap-input100 validate-input" data-validate = "Password is required">-->
 <!--						<input class="input100" type="password" id="id_password" name="password" >-->

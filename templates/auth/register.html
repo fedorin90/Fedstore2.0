@@ -1,55 +1,35 @@
 {% extends 'base.html' %}
 {% load static %}
 
+
 {% block title %}
  	Fedstore Register
 {% endblock title %}
 
 {% block container %}
-			</div>
-				<div class="container">
-					<h2>Registration</h2>
-					<form method="post" action="{% url 'register' %}">
-						{% csrf_token %}
 
-						{% for field in user_form %}
 
-						<div class="row form-group">
-							<div class="col-md-4">
-								<span style="color: red">{{ field.errors }}</span>
-								{{ field.label_tag }}
-								{{ field }}
-							</div>
-						</div>
+<div class="container ">
+    <h1>{{title}}</h1>
+<form method="post">
 
-						{% endfor %}
-<!--						<div class="row form-group">-->
-<!--							<div class="col-md-4">-->
-<!--								<input type="text" id="id_username" class="form-control" name="username" placeholder="Your username">-->
-<!--							</div>-->
-<!--						</div>-->
-<!--						<div class="row form-group">-->
-<!--							<div class="col-md-4">-->
-<!--								<input type="email" id="id_email" class="form-control" name="email" placeholder="Your email">-->
-<!--							</div>-->
+    {% csrf_token %}
 
-<!--						</div>-->
+    {% for f in form %}
+    <div class="row form-group ">
+        <div class="col-md-4 ">
+    <p><label class="form-group" for="{{ f.id_for_label }}">{{f.label}}:</label>{{ f }}</p>
 
-<!--						<div class="form-group">-->
-<!--							<div class="row form-group">-->
-<!--							<div class="col-md-4">-->
-<!--								<input type="password" id="id_password" class="form-control" name="password" placeholder="Your password">-->
-<!--							</div>-->
-								<div>
-							<input type="submit" value="Sing up" class="btn btn-primary">
-						</div>
+            <span style="color: red" class="form-error"> {{ f.errors }}</span>
 
-{% for error in login_form.non_field_errors %}
-						<a>{{ error }}</a>
-						{% endfor %}
-						<br></br>
-					</form>
-				</div>
-			</div>
+</div>
+</div>
 
+    {% endfor %}
+	<div>
+		<input type="submit" value="Sing up" class="btn btn-primary">
+</div>
+
+</form>
+</div>
 {% endblock container %}
