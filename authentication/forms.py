@@ -1,6 +1,9 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordResetForm
 from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
+
+
 # from django.core.exceptions import ValidationError
 # from captcha.fields import CaptchaField
 # from .models import *
@@ -24,6 +27,17 @@ class RegisterUserForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2')
+
+
+class ResetUserForm(PasswordResetForm):
+    email = forms.EmailField(label='Email', widget=forms.EmailInput(attrs={
+        'class': 'form-control', 'placeholder': 'Your email'}))
+
+    class Meta:
+        model = User
+
+
+
 
 
 
