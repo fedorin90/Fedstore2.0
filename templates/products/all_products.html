@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+Home
+{% endblock title %}
+
+{% block container %}
+
+
+  <div class="fh5co-product">
+    <div class="container">
+
+      <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+					<h2>All products</h2>
+	  </div>
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
+		  {% for category in categories %}
+								<a href="{{ c.get_absolute_url }}">{{ category.name }}</a>
+								{% endfor %}
+
+        {% for product in products %}
+
+       <div class="row animate-box">
+				<div class="col-md-4 text-center animate-box">
+					<div class="product">
+                              <img class="product-grid" style="background-image:url(images/product-2.jpg);" src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
+						<div class="inner">
+							<p>
+								<a href="single.html" class="icon"><i class="icon-shopping-cart"></i></a>
+								<a href="single.html" class="icon"><i class="icon-eye"></i></a>
+							</p>
+					</div>
+						<div class="desc">
+
+							<h3><a href="single.html">{{ product.name }}</a></h3>
+							<span class="price">{{ product.price }}</span>
+						</div>
+					</div>
+				</div>
+       </div>
+
+
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+
+
+
+{% endblock container %}
+
+

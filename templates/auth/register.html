@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+ 	Fedstore Register
+{% endblock title %}
+
+{% block container %}
+
+
+<div class="container ">
+    <h3>{{title}}</h3>
+<form method="post">
+
+    {% csrf_token %}
+
+    {% for f in form %}
+    <div class="row form-group ">
+        <div class="col-md-4 ">
+    <p><label class="form-group" for="{{ f.id_for_label }}">{{f.label}}:</label>{{ f }}</p>
+            <span style="color: red" class="form-error"> {{ f.errors }}</span>
+
+</div>
+</div>
+
+    {% endfor %}
+	<div>
+		<input type="submit" value="Register" class="btn btn-primary">
+</div>
+
+</form>
+</div>
+{% endblock container %}
