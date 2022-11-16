@@ -68,22 +68,9 @@
 					<ul>
 						<li class="has-dropdown">
 							<a href="{% url 'shop:all_products' %}">Shop</a>
-							<ul class="dropdown">
-								{% for categories in category %}
-								<li><a href="{{ c.get_absolute_url }}">{{ categories.name }}</a></li>
-								{% endfor %}
-							</ul>
+
 						</li>
 						<li><a href="{% url 'about' %}">About</a></li>
-						<li class="has-dropdown">
-							<a href="services.html">Services</a>
-							<ul class="dropdown">
-
-								<li><a href="#">eCommerce</a></li>
-								<li><a href="#">Branding</a></li>
-								<li><a href="#">API</a></li>
-							</ul>
-						</li>
 						<li><a href="{% url 'contact' %}">Contact</a></li>
 					</ul>
 				</div>

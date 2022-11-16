@@ -23,7 +23,7 @@ class RegisterUser(CreateView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        return redirect('index')
+        return redirect('shop:all_products')
 
 
 class LoginUser(LoginView):
@@ -35,12 +35,12 @@ class LoginUser(LoginView):
         return context
 
     def get_success_url(self):
-        return reverse_lazy('index')
+        return reverse_lazy('shop:all_products')
 
 
 def logout_user(request):
     logout(request)
-    return redirect('index')
+    return redirect('shop:all_products')
 
 
 class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
@@ -52,7 +52,7 @@ class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
                       "if an account exists with the email you entered. You should receive them shortly." \
                       " If you don't receive an email, " \
                       "please make sure you've entered the address you registered with, and check your spam folder."
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('shop:all_products')
 
 
 
