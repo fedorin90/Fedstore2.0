@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-duc14mos*04n%w2&j!oltayrs^y%3k#1tf90hgt@aqiv4dhz2w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -126,9 +126,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIR = (
-    os.path.join(BASE_DIR, "/shop/static/")
-)
+STATICFILES_DIR = (os.path.join(BASE_DIR, "/shop/static/"))
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
@@ -138,8 +137,8 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-LOGIN_REDIRECT_URL = "index"
-LOGOUT_REDIRECT_URL = "index"
+# LOGIN_REDIRECT_URL = "index"
+# LOGOUT_REDIRECT_URL = "index"
 
 # django_project/settings.py
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

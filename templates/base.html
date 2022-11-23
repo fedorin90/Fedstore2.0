@@ -47,11 +47,11 @@
 
 	<!-- Modernizr JS -->
 	<script src="{% static '/js/modernizr-2.6.2.min.js' %}"></script>
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="{% static '/js/respond.min.js' %}"></script>
-	<![endif]-->
 
+	<script src="{% static '/js/respond.min.js' %}"></script>
+
+
+		
 	</head>
 	<body>
 
@@ -68,7 +68,11 @@
 					<ul>
 						<li class="has-dropdown">
 							<a href="{% url 'shop:all_products' %}">Shop</a>
-
+							<ul class="dropdown">
+								{% for c in cat %}
+								<li><a href="{% url 'shop:category_list' c.slug %}">{{c.name|title}}</a></Li>
+								{% endfor %}
+							</ul>
 						</li>
 						<li><a href="{% url 'about' %}">About</a></li>
 						<li><a href="{% url 'contact' %}">Contact</a></li>
