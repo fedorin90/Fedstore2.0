@@ -1756,3 +1756,8 @@ body { padding: 2em; }
     height: 200px;
 }
 /*# sourceMappingURL=style.css.map */
+
+.form-center {
+  display:flex;
+  justify-content: center;
+}

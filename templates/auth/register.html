@@ -8,27 +8,32 @@
 
 {% block container %}
 
+		<div class="container">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+					<span>Register</span>
+					<h2>Register</h2>
+				</div>
 
-<div class="container ">
-    <h3>{{title}}</h3>
-<form method="post">
 
-    {% csrf_token %}
+            <form method="post">
 
-    {% for f in form %}
-    <div class="row form-group ">
-        <div class="col-md-4 ">
-    <p><label class="form-group" for="{{ f.id_for_label }}">{{f.label}}:</label>{{ f }}</p>
-            <span style="color: red" class="form-error"> {{ f.errors }}</span>
+                {% csrf_token %}
 
-</div>
-</div>
+                {% for f in form %}
+                <div class="row form-group ">
+                    <div class="col-md-4 ">
+                <p><label class="form-group" for="{{ f.id_for_label }}">{{f.label}}:</label>{{ f }}</p>
+                        <span style="color: red" class="form-error"> {{ f.errors }}</span>
 
-    {% endfor %}
-	<div>
-		<input type="submit" value="Register" class="btn btn-primary">
-</div>
+            </div>
+            </div>
 
-</form>
-</div>
+                {% endfor %}
+                <div>
+                    <input type="submit" value="Register" class="btn btn-primary">
+            </div>
+
+            </form>
+    </div>
+
 {% endblock container %}
