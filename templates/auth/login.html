@@ -12,35 +12,34 @@
 					<span>Login</span>
 					<h2>Login</h2>
 				</div>
-		<div class="form-center">
-			<form method="post">
-				{% csrf_token %}
-				<button class="loginBtn loginBtn--facebook">
-						Login with Facebook
-					</button>
-					<button class="loginBtn loginBtn--google">
-						Login with Google
-					</button>
-					<br></br>
-				{% for f in form %}
-				<div class="row form-group ">
-					<div class="col-md-4 ">
-				<p><label class="form-group " for="{{ f.id_for_label }}">{{f.label}}:</label>{{ f }}</p>
 
-					</div>
+	<form method="post">
+		{% csrf_token %}
+		<button class="loginBtn loginBtn--facebook">
+				Login with Facebook
+			</button>
+			<button class="loginBtn loginBtn--google">
+				Login with Google
+			</button>
+			<br></br>
+		{% for f in form %}
+		<div class="row form-group ">
+			<div class="col-md-4 ">
+		<p><label class="form-group " for="{{ f.id_for_label }}">{{f.label}}:</label>{{ f }}</p>
+
 			</div>
+	</div>
 
-				{% endfor %}
-				<a href="{% url 'password_reset' %}" class="txt2 bo1 m-l-5">
-										Forgot login or password?
-									</a>
-			<span style="color: red" class="row form-group">{{ form.non_field_errors }}</span>
-				<div>
-					<input type="submit" value="Sing up" class="btn btn-primary">
-			</div>
+		{% endfor %}
+		<a href="{% url 'password_reset' %}" class="txt2 bo1 m-l-5">
+								Forgot login or password?
+							</a>
+	<span style="color: red" class="row form-group">{{ form.non_field_errors }}</span>
+		<div>
+			<input type="submit" value="Sing up" class="btn btn-primary">
+	</div>
 
-			</form>
-		</div>
+	</form>
 </div>
 
 {% endblock container %}
