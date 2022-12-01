@@ -23,7 +23,7 @@
 					{% for product in products %}
 					<div class="col-md-4 text-center animate-box">
 						<div class="product">
-							<img class="product-grid"  src="{{ product.image.url }}">
+							<a href="{% url 'shop:product_detail' product.slug %}"><img class="product"  src="{{ product.image.url }}"></a>
 								<div class="inner">
 									<p>
 										<a href="{% url 'shop:product_detail' product.slug %}" class="icon"><i class="icon-shopping-cart"></i></a>

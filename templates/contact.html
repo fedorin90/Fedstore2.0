@@ -30,36 +30,18 @@
 				</div>
 				<div class="col-md-6 animate-box">
 					<h3>Get In Touch</h3>
-					<form action="#">
+					<form method="post">
 						<div class="row form-group">
-							<div class="col-md-6">
-								<input type="text" id="fname" class="form-control" placeholder="Your firstname">
-							</div>
-							<div class="col-md-6">
-								<input type="text" id="lname" class="form-control" placeholder="Your lastname">
-							</div>
-						</div>
-						<div class="row form-group">
-							<div class="col-md-12">
-								<input type="text" id="email" class="form-control" placeholder="Your email address">
-							</div>
-						</div>
-						<div class="row form-group">
-							<div class="col-md-12">
-
-								<input type="text" id="subject" class="form-control" placeholder="Your subject of this message">
-							</div>
-						</div>
-						<div class="row form-group">
-							<div class="col-md-12">
-
-								<textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Say something about us"></textarea>
-							</div>
-						</div>
+							<div class="col-md-10">
+								 {% csrf_token %}
+								{% for f in form %}
+								<p><label class="form-group" for="{{ f.id_for_label }}">{{f.label}}:</label>{{ f }}</p>
+								<span style="color: red" class="form-error"> {{ f.errors }}</span>
+								{% endfor %}
 						<div class="form-group">
 							<input type="submit" value="Send Message" class="btn btn-primary">
 						</div>
-					</form>		
+					</form>
 				</div>
 			</div>
 			</div>

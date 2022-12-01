@@ -1,11 +1,8 @@
 from django.contrib.auth import logout, login
 from django.contrib.auth.views import LoginView
-
-from django.shortcuts import render, redirect
-# import django.http
-from django.views.generic import ListView, DetailView, CreateView, FormView
+from django.shortcuts import redirect
+from django.views.generic import CreateView
 from .forms import *
-from .utils import *
 from django.urls import reverse_lazy
 from django.contrib.auth.views import PasswordResetView
 from django.contrib.messages.views import SuccessMessageMixin
