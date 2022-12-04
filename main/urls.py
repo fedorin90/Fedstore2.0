@@ -7,10 +7,11 @@ from main import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('about/', views.about, name='about'),
-    path('contact/', views.contact, name='contact'),
+    path('cart/', include('cart.urls', namespace='cart')),
     path('', include(('shop.urls', 'shop'), namespace='shop')),
     path('auth/', include('authentication.urls')),
+    path('about/', views.about, name='about'),
+    path('contact/', views.contact, name='contact'),
 ]
 
 if settings.DEBUG:

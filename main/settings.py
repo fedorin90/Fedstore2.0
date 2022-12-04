@@ -17,6 +17,8 @@ from pathlib import Path
 from dotenv import load_dotenv
 load_dotenv()  # loads the configs from .env
 
+
+CART_SESSION_ID = 'cart'
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIRS = os.path.join(BASE_DIR, 'templates')
@@ -45,6 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'authentication',
     'shop.apps.ShopConfig',
+    'cart.apps.CartConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -70,6 +74,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processor.cart'
             ],
         },
     },
