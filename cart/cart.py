@@ -53,6 +53,8 @@ class Cart(object):
         self.save()
 
     def save(self):
+        # обновляем товар в сессии
+        self.session[settings.CART_SESSION_ID] = self.cart
         # сохраняем товар
         self.session.modified = True
 
