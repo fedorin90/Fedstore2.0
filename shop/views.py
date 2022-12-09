@@ -14,6 +14,7 @@ class ShopHome(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['cart_product_form'] = CartAddProductForm()
         return context
 
 
@@ -30,6 +31,7 @@ class ShopCategory(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Category - ' + str(context['products'][0].category)
+        context['cart_product_form'] = CartAddProductForm()
         return context
 
 
