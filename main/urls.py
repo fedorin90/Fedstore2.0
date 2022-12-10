@@ -8,6 +8,7 @@ from main import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('cart/', include('cart.urls', namespace='cart')),
+    path('order/', include(('orders.urls', 'orders'), namespace='orders')),
     path('', include(('shop.urls', 'shop'), namespace='shop')),
     path('auth/', include('authentication.urls')),
     path('about/', views.about, name='about'),
