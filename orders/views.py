@@ -1,13 +1,13 @@
 from django.shortcuts import render
 from .models import OrderItem
-from .forms import OrderCreationForm
+from .forms import OrderCreateForm
 from cart.cart import Cart
 
 
 def order_create(request):
     cart = Cart(request)
     if request.method == 'POST':
-        form = OrderCreationForm(request.POST)
+        form = OrderCreateForm(request.POST)
         if form.is_valid():
             order = form.save()
             for item in cart:
@@ -15,10 +15,10 @@ def order_create(request):
                                          product=item['product'],
                                          price=item['price'],
                                          quantity=item['quantity'])
-
             cart.clear()
-            return render(request, 'orders/created.html', {'order': order})
+            return render(request, 'orders/created.html',
+                          {'order': order})
     else:
-        form = OrderCreationForm
+        form = OrderCreateForm
     return render(request, 'orders/create.html',
                   {'cart': cart, 'form': form})

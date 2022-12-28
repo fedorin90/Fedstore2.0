@@ -47,13 +47,13 @@ body {
 }
 
 a {
-  color: #d1c286;
+  color: #303878;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
 }
 a:hover, a:active, a:focus {
-  color: #d1c286;
+  color: #303878;
   outline: none;
   text-decoration: none;
 }
@@ -71,17 +71,17 @@ h1, h2, h3, h4, h5, h6, figure {
 
 ::-webkit-selection {
   color: #fff;
-  background: #d1c286;
+  background: #1294cc;
 }
 
 ::-moz-selection {
   color: #fff;
-  background: #d1c286;
+  background: #1294cc;
 }
 
 ::selection {
   color: #fff;
-  background: #d1c286;
+  background: #1294cc;
 }
 
 .fh5co-nav {
@@ -111,12 +111,9 @@ h1, h2, h3, h4, h5, h6, figure {
   }
 }
 .fh5co-nav .menu-2 li.search {
-  float: left;
+  float: center;
   width: 83%;
   font-family: "Playfair Display", serif;
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
   padding: 0;
   margin: -5px 0 0 0;
 }
@@ -167,7 +164,7 @@ h1, h2, h3, h4, h5, h6, figure {
   padding: 10px 6px;
   line-height: 0;
   font-size: 11px;
-  background: #d1c286;
+  background: #303878;
   color: white;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -210,7 +207,7 @@ h1, h2, h3, h4, h5, h6, figure {
   padding: 10px 6px;
   line-height: 0;
   font-size: 11px;
-  background: #d1c286;
+  background: #303878;
   color: white;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -510,7 +507,7 @@ h1, h2, h3, h4, h5, h6, figure {
   margin-bottom: 30px;
 }
 .fh5co-staff .role {
-  color: #bfbfbf;
+  color: #303878;
   margin-bottom: 30px;
   font-weight: normal;
   display: block;
@@ -534,7 +531,7 @@ h1, h2, h3, h4, h5, h6, figure {
   display: inline-block;
   zoom: 1;
   *display: inline;
-  color: #d1c286;
+  color: F04020;
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -553,7 +550,7 @@ h1, h2, h3, h4, h5, h6, figure {
   position: relative;
 }
 .fh5co-contact-info ul li:before {
-  color: #d1c286;
+  color: #F04020;
   position: absolute;
   left: 0;
   top: .05em;
@@ -571,18 +568,22 @@ h1, h2, h3, h4, h5, h6, figure {
 .fh5co-contact-info ul li.address:before {
   font-size: 30px;
   content: "\e9d1";
+  color: #F04020;
 }
 .fh5co-contact-info ul li.phone:before {
   font-size: 23px;
   content: "\e9f4";
+  color: #F04020;
 }
 .fh5co-contact-info ul li.email:before {
   font-size: 23px;
   content: "\e9da";
+  color: #F04020;
 }
 .fh5co-contact-info ul li.url:before {
   font-size: 23px;
   content: "\e9af";
+  color: #F04020;
 }
 
 #fh5co-header .display-tc,
@@ -634,7 +635,7 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-counter .display-tc .btn,
 .fh5co-cover .display-tc .btn {
   padding: 15px 30px;
-  background: #d1c286 !important;
+  background: #303878 !important;
   color: #fff;
   border: none !important;
   font-size: 18px;
@@ -643,7 +644,7 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-header .display-tc .btn:hover,
 #fh5co-counter .display-tc .btn:hover,
 .fh5co-cover .display-tc .btn:hover {
-  background: #d1c286 !important;
+  background: #303878 !important;
   -webkit-box-shadow: 0px 14px 30px -15px rgba(0, 0, 0, 0.75) !important;
   -moz-box-shadow: 0px 14px 30px -15px rgba(0, 0, 0, 0.75) !important;
   box-shadow: 0px 14px 30px -15px rgba(0, 0, 0, 0.75) !important;
@@ -692,7 +693,7 @@ h1, h2, h3, h4, h5, h6, figure {
   width: 70px;
   height: 70px;
   text-align: center;
-  background: #d1c286;
+  background: #303878;
   -webkit-box-shadow: 0px 14px 30px -15px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 14px 30px -15px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 14px 30px -15px rgba(0, 0, 0, 0.75);
@@ -754,7 +755,7 @@ h1, h2, h3, h4, h5, h6, figure {
 .feature-center .icon {
   width: 90px;
   height: 90px;
-  background: #d1c286;
+  background: #303878;
   display: table;
   text-align: center;
   margin: 0 auto 30px auto;
@@ -801,7 +802,7 @@ h1, h2, h3, h4, h5, h6, figure {
   left: 10px;
   padding: 10px;
   z-index: 100;
-  background: #d1c286;
+  background: #303878;
   color: #fff;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -831,10 +832,10 @@ h1, h2, h3, h4, h5, h6, figure {
 .product .product-grid .inner p .icon {
   padding: 7px 10px;
   color: #fff;
-  background: #d1c286;
+  background: #303878;
 }
 .product .product-grid .inner p .icon:hover, .product .product-grid .inner p .icon:focus {
-  color: #d1c286;
+  color: #303878;
   background: #fff;
 }
 .product .desc h3 {
@@ -863,7 +864,7 @@ h1, h2, h3, h4, h5, h6, figure {
   opacity: 1;
 }
 .product:hover .desc h3 a, .product:focus .desc h3 a {
-  color: #d1c286;
+  color: #303878;
 }
 
 .product-carousel {
@@ -912,7 +913,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 .fh5co-tabs .fh5co-tab-nav li.active a {
   background: #fff;
-  color: #d1c286;
+  color: #303878;
 }
 .fh5co-tabs .fh5co-tab-content-wrap {
   clear: both;
@@ -933,7 +934,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 .fh5co-tabs .fh5co-tab-content-wrap .tab-content .price {
   letter-spacing: 2px;
-  border: 2px solid #d1c286;
+  border: 2px solid #303878;
   display: inline-block;
   margin-bottom: 20px;
   padding: 7px 20px 10px 20px;
@@ -996,7 +997,7 @@ h1, h2, h3, h4, h5, h6, figure {
   }
 }
 .fh5co-tabs .icon-xlg i {
-  color: #d1c286;
+  color: #303878;
 }
 
 .fh5co-heading {
@@ -1082,7 +1083,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 #fh5co-started {
-  background: #d1c286;
+  background: #303878;
 }
 #fh5co-started .fh5co-heading h2 {
   color: #fff;
@@ -1239,12 +1240,9 @@ h1, h2, h3, h4, h5, h6, figure {
   list-style: none;
 }
 #fh5co-offcanvas ul li.search {
-  float: left;
+  float: center;
   width: 100%;
   font-family: "Playfair Display", serif;
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
   padding: 0;
   margin: 5px 0 0 0;
 }
@@ -1298,7 +1296,7 @@ h1, h2, h3, h4, h5, h6, figure {
   padding: 10px 6px;
   line-height: 0;
   font-size: 11px;
-  background: #d1c286;
+  background: #3038780;
   color: white;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -1515,21 +1513,21 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 .btn-primary {
-  background: #d1c286;
+  background: #303878;
   color: #fff;
-  border: 2px solid #d1c286;
+  border: 2px solid #303878;
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-  background: #d8cb98 !important;
-  border-color: #d8cb98 !important;
+  background: #C0C8E0 !important;
+  border-color: #C0C8E0 !important;
 }
 .btn-primary.btn-outline {
   background: transparent;
-  color: #d1c286;
-  border: 2px solid #d1c286;
+  color: #303878;
+  border: 2px solid #303878;
 }
 .btn-primary.btn-outline:hover, .btn-primary.btn-outline:focus, .btn-primary.btn-outline:active {
-  background: #d1c286;
+  background: #303878;
   color: #fff;
 }
 
@@ -1659,7 +1657,7 @@ h1, h2, h3, h4, h5, h6, figure {
 .form-control:active, .form-control:focus {
   outline: none;
   box-shadow: none;
-  border-color: #d1c286;
+  border-color: #3038780;
 }
 
 .row-pb-md {

@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-  {{ product.name }}
+  {{ title }}
 {% endblock title %}
 
 {% block container %}
@@ -10,8 +10,8 @@
 
 		<div class="container">
 			<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<span>Product details</span>
-					<h2>Product details</h2>
+					<span>{{ title }}</span>
+					<h2>{{ title }}</h2>
 			</div>
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1 animate-box">

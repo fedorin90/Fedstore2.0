@@ -4,21 +4,21 @@ from django.views.generic.edit import FormMixin
 
 from cart.forms import CartAddProductForm
 from .models import *
+from .utils import DataMixin
 
 
-class ShopHome(ListView):
+class ShopHome(DataMixin, ListView):
     model = Product
     template_name = 'products/all_products.html'
     context_object_name = 'products'
-    extra_context = {'title': 'Home'}
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['cart_product_form'] = CartAddProductForm()
-        return context
+        c_def = self.get_user_context(title='Home')
+        return context | c_def
 
 
-class ShopCategory(ListView):
+class ShopCategory(DataMixin, ListView):
     model = Product
     template_name = 'products/category.html'
     context_object_name = 'products'
@@ -30,20 +30,22 @@ class ShopCategory(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Category - ' + str(context['products'][0].category)
-        context['cart_product_form'] = CartAddProductForm()
-        return context
+        c_def = self.get_user_context(title='Category - ' + str(context['products'][0].category))
+        return context | c_def
 
 
-class ShopDetail(DetailView, FormMixin):
+class ShopDetail(DataMixin, DetailView, FormMixin):
     model = Product
     template_name = 'products/detail.html'
     form_class = CartAddProductForm
 
+    def get_queryset(self):
+        return Product.objects.filter(slug=self.kwargs['slug'])
+
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['cart_product_form'] = CartAddProductForm()
-        return context
+        c_def = self.get_user_context(title=str(context['product'].name) + ' - details')
+        return context | c_def
 
 
 
