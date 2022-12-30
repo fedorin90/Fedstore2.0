@@ -1,3 +1,5 @@
 {% for c in cats %}
+{% if c.product__count > 0 %}
 <li><a href="{% url 'shop:category_list' c.slug %}">{{c.name|title}}</a></Li>
+{% endif %}
 {% endfor %}

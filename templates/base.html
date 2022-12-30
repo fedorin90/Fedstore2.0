@@ -64,10 +64,7 @@
 						<li class="has-dropdown">
 							<a href="{% url 'shop:all_products' %}">Shop</a>
 							<ul class="dropdown">
-<!--								{% show_categories '-name' %}-->
-								{% for c in cats %}
-								<li><a href="{% url 'shop:category_list' c.slug %}">{{c.name|title}}</a></Li>
-								{% endfor %}
+								{% show_categories '-name' %}
 							</ul>
 						</li>
 						<li><a href="{% url 'about' %}">About</a></li>
@@ -106,6 +103,26 @@
 	</nav>
 		{% block container %}
 		{% endblock container %}
+
+		<div class="col-md-8 col-md-offset-2 text-center">
+		<nav class="pagination-container">
+				<div class="pagination">
+
+						<a class="pagination-newer" href="#">PREV</a>
+
+						<span class="pagination-inner">
+							{% for p in paginator.page_range %}
+							{% if page_obj.number == p %}
+							<a class="pagination-active" href="?page={{ p }}">{{ p }}</a>
+							{% else %}
+							<a href="?page={{ p }}">{{ p }}</a>
+							{% endif %}
+							{% endfor %}
+						</span>
+						<a class="pagination-older" href="#">NEXT</a>
+				</div>
+		</nav>
+		</div>
 	<footer>
 			<div class="row copyright">
 				<div class="col-md-12 text-center">
@@ -148,7 +165,8 @@
 	<script src="{% static '/js/jquery.flexslider-min.js' %}"></script>
 	<!-- Main -->
 	<script src="{% static '/js/main.js' %}"></script>
-
+	<!--pagination-->
+ 	<script  src="{% static '/js/script.js' %}"></script>
 	</body>
 </html>
 

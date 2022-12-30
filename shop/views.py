@@ -8,6 +8,7 @@ from .utils import DataMixin
 
 
 class ShopHome(DataMixin, ListView):
+    paginate_by = 6
     model = Product
     template_name = 'products/all_products.html'
     context_object_name = 'products'
@@ -19,6 +20,7 @@ class ShopHome(DataMixin, ListView):
 
 
 class ShopCategory(DataMixin, ListView):
+    paginate_by = 6
     model = Product
     template_name = 'products/category.html'
     context_object_name = 'products'
